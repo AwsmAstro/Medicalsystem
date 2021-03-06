@@ -3,13 +3,15 @@ import { Navigate } from 'react-router-dom';
 import DashboardLayout from 'src/layouts/DashboardLayout';
 import MainLayout from 'src/layouts/MainLayout';
 import AccountView from 'src/views/account/AccountView';
-import CustomerListView from 'src/views/customer/CustomerListView';
+// import CustomerListView from 'src/views/patients/PatientsView';
 import DashboardView from 'src/views/reports/DashboardView';
 import LoginView from 'src/views/auth/LoginView';
 import NotFoundView from 'src/views/errors/NotFoundView';
-import ProductListView from 'src/views/product/ProductListView';
+// import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
+import PatientsView from 'src/views/patients/PatientsView';
+import MedicalForm from './views/medicalForm/MedicalFormView';
 
 const routes = [
   {
@@ -17,9 +19,9 @@ const routes = [
     element: <DashboardLayout />,
     children: [
       { path: 'accounts', element: <AccountView /> },
-      { path: 'patients', element: <CustomerListView /> },
+      { path: 'patients', element: <PatientsView /> },
       { path: 'dashboard', element: <DashboardView /> },
-      { path: 'medicalform', element: <ProductListView /> },
+      { path: 'medicalform', element: <MedicalForm /> },
       { path: 'settings', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProductList = () => {
+const MedicalForm = () => {
   const classes = useStyles();
 
   const [doctor, setDoctor] = React.useState('');
@@ -49,4 +49,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default MedicalForm;
