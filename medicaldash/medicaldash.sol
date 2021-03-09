@@ -1,774 +1,316 @@
-[
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Doctors",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "licenceNumber",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "hospital",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "FormCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Hospitals",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "regNumber",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Labs",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "regNumber",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "MedicalForms",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "doctor",
-				"type": "address"
-			},
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "temperature",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "weight",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "bloodPressure",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "heartrate",
-						"type": "string"
-					}
-				],
-				"internalType": "struct Triage",
-				"name": "triage",
-				"type": "tuple"
-			},
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "symptoms",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "diagnosisDetails",
-						"type": "string"
-					}
-				],
-				"internalType": "struct Diagnosis",
-				"name": "diagnosis",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Patients",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "enum Gender",
-				"name": "gender",
-				"type": "uint8"
-			},
-			{
-				"internalType": "string",
-				"name": "location",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "dateOfBirth",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Pharmacies",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "regNumber",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_doctor",
-				"type": "address"
-			}
-		],
-		"name": "appointDoctor",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_symptoms",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_diagnosisDetails",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "createDiagnosis",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_doctor",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_licenceNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "createDoctor",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "licenceNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "hospital",
-						"type": "address"
-					}
-				],
-				"internalType": "struct Doctor",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_drugName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_portions",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "createDrugPrescription",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_regNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "createHospital",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "regNumber",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct Hospital",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_lab",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_regNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "createLab",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "regNumber",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct Lab",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_testName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_testDetails",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_testResults",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_comments",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "createLabTest",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_doctor",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "createMedicalForm",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "enum Gender",
-				"name": "_gender",
-				"type": "uint8"
-			},
-			{
-				"internalType": "string",
-				"name": "_location",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_dateOfBirth",
-				"type": "string"
-			}
-		],
-		"name": "createPatient",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "enum Gender",
-						"name": "gender",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "location",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "dateOfBirth",
-						"type": "string"
-					}
-				],
-				"internalType": "struct Patient",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_pharmacy",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_regNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "createPharmacy",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "regNumber",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct Pharmacy",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_temperature",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_weight",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_bloodPressure",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_heartrate",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "createTriage",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_hospital",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_patient",
-				"type": "address"
-			}
-		],
-		"name": "getMedicalForms",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "hospital",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "doctor",
-						"type": "address"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "temperature",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "weight",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "bloodPressure",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "heartrate",
-								"type": "string"
-							}
-						],
-						"internalType": "struct Triage",
-						"name": "triage",
-						"type": "tuple"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "symptoms",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "diagnosisDetails",
-								"type": "string"
-							}
-						],
-						"internalType": "struct Diagnosis",
-						"name": "diagnosis",
-						"type": "tuple"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "testName",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "testDetails",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "testResults",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "comments",
-								"type": "string"
-							}
-						],
-						"internalType": "struct LabTest[]",
-						"name": "labTests",
-						"type": "tuple[]"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "drugName",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "portions",
-								"type": "string"
-							}
-						],
-						"internalType": "struct DrugPrescription[]",
-						"name": "prescriptions",
-						"type": "tuple[]"
-					}
-				],
-				"internalType": "struct MedicalForm[]",
-				"name": "",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-]
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.7.0;
+pragma experimental ABIEncoderV2;
+
+
+enum Gender { Male, Female, Other }
+struct Patient {
+    string name;
+    Gender gender;
+    string location;
+    string dateOfBirth;
+}
+
+struct Doctor {
+    string name;
+    uint licenceNumber;
+    address hospital;
+}
+
+struct Hospital {
+    string name;
+    uint regNumber;
+}
+
+struct Pharmacy {
+    string name;
+    uint regNumber;
+}
+
+struct Lab {
+    string name;
+    uint regNumber;
+}
+
+struct Triage {
+    string temperature;
+    string weight;
+    string bloodPressure;
+    string heartrate;
+}
+
+struct LabTest {
+    string testName;
+    string testDetails;
+    string testResults;
+    string comments;
+}
+
+struct Diagnosis {
+    string symptoms;
+    string diagnosisDetails;
+}
+
+struct DrugPrescription {
+    string drugName;
+    string portions;
+}
+
+struct MedicalForm {
+    address hospital;
+    address doctor;
+    Triage triage;
+    Diagnosis diagnosis;
+    LabTest[] labTests;
+    DrugPrescription[] prescriptions;
+}
+
+contract HealthData {
+    
+    mapping(address => Hospital) public Hospitals;
+    mapping(address => Pharmacy) public Pharmacies;
+    mapping(address => Lab) public Labs;
+    mapping(address => Patient) public Patients;
+    mapping(address => mapping(address => MedicalForm[])) public MedicalForms;
+    mapping(address => uint) public FormCount;
+    mapping(address => Doctor) public Doctors;
+    address public owner;
+    
+    constructor() {
+        owner = msg.sender;
+    }
+    
+    //Form count initialization modifier
+    modifier setFormCount(address _patient) {
+        if(FormCount[_patient] == 0){
+            FormCount[_patient] = 1;
+        }else{
+            FormCount[_patient]++;
+        }
+        _;
+    }
+    
+    //Valid doctor modifier
+    modifier isValidDoctor(address _hospital){
+        require(Doctors[msg.sender].hospital == _hospital, "Invalid Doctor!");
+        _;
+    }
+    
+    //is hosptal modifier
+    modifier isHospital() {
+        require(Hospitals[msg.sender].regNumber != 0, "Invalid Hospiital!");
+        _;
+    }
+    
+    modifier hospitalExists(address _hospital) {
+        require(Hospitals[_hospital].regNumber != 0, "Invalid Hospital!");
+        _;
+    }
+    
+    //is Patient modifier
+    modifier isPatient(address _patient){
+        require(keccak256(bytes(Patients[_patient].name)) != keccak256(bytes("")), "Invalid Patient!");
+        _;
+    }
+    
+    //Is Owner modifier
+    modifier isOwner(){
+        require(msg.sender == owner, "UnAuthorized!! Not owner.");
+        _;
+    }
+    
+    //Create Patient
+    function createPatient(
+    address _patient,
+    string memory _name,
+    Gender _gender,
+    string memory _location,
+    string memory _dateOfBirth
+    )
+    public payable isOwner
+    returns(Patient memory){
+        Patient memory patient;
+        patient.name = _name;
+        patient.gender = _gender;
+        patient.location = _location;
+        patient.dateOfBirth = _dateOfBirth;
+        
+        Patients[_patient] = patient;
+        return patient;
+    }
+    
+    
+    //Create Lab
+    function createLab(
+    address _lab,
+    string memory _name,
+    uint _regNumber
+    )
+    public payable isOwner
+    returns(Lab memory){
+        Lab memory lab;
+        lab.name = _name;
+        lab.regNumber = _regNumber;
+        
+        Labs[_lab] = lab;
+        
+        return lab;
+    }
+    
+    
+    //Create Pharmacy
+    function createPharmacy(
+    address _pharmacy,
+    string memory _name,
+    uint _regNumber
+    )
+    public payable isOwner
+    returns(Pharmacy memory){
+        Pharmacy memory pharmacy;
+        pharmacy.name = _name;
+        pharmacy.regNumber = _regNumber;
+        
+        Pharmacies[_pharmacy] = pharmacy;
+        
+        return pharmacy;
+    }
+    
+    
+    //Create Hospital
+    function createHospital(
+    address _hospital,
+    string memory _name,
+    uint _regNumber
+    )
+    public payable isOwner
+    returns(Hospital memory){
+        Hospital memory hospital;
+        hospital.name = _name;
+        hospital.regNumber = _regNumber;
+        
+        Hospitals[_hospital] = hospital;
+        
+        return hospital;
+    }
+    
+    
+    //Create Doctor
+    function createDoctor(
+    address _doctor,
+    string memory _name,
+    uint _licenceNumber
+    )
+    public payable isOwner
+    returns(Doctor memory){
+        Doctor memory doctor;
+        doctor.name = _name;
+        doctor.licenceNumber = _licenceNumber;
+        
+        Doctors[_doctor] = doctor;
+        
+        return doctor;
+    }
+    
+    
+    //Appoint Doctor
+    function appointDoctor(
+    address _doctor
+    )
+    public isHospital {
+        Doctors[_doctor].hospital = msg.sender;
+    }
+    
+    
+    //Create Traige
+    function createTriage(
+    string memory _temperature,
+    string memory _weight,
+    string memory _bloodPressure,
+    string memory _heartrate,
+    address _hospital,
+    address _patient
+    )
+    public payable isValidDoctor(_hospital) {
+        Triage memory triage;
+        triage.temperature = _temperature;
+        triage.weight = _weight;
+        triage.bloodPressure = _bloodPressure;
+        triage.heartrate = _heartrate;
+        
+        MedicalForm storage medicalForm = MedicalForms[_hospital][_patient][FormCount[_patient] - 1];
+        medicalForm.triage = triage;
+    }
+    
+    
+    //Create LabTest
+    function createLabTest(
+    string memory _testName,
+    string memory _testDetails,
+    string memory _testResults,
+    string memory _comments,
+    address _hospital,
+    address _patient
+    )
+    public payable isValidDoctor(_hospital) {
+        LabTest memory labTest;
+        labTest.testName = _testName;
+        labTest.testDetails = _testDetails;
+        labTest.testResults = _testResults;
+        labTest.comments = _comments;
+        
+        MedicalForm storage medicalForm = MedicalForms[_hospital][_patient][FormCount[_patient] - 1];
+        medicalForm.labTests.push(labTest);
+    }
+    
+    
+    //Create Diagnosis
+    function createDiagnosis(
+    string memory _symptoms,
+    string memory _diagnosisDetails,
+    address _hospital,
+    address _patient
+    )
+    public payable isValidDoctor(_hospital) {
+        Diagnosis memory diagnosis;
+        diagnosis.symptoms = _symptoms;
+        diagnosis.diagnosisDetails = _diagnosisDetails;
+        
+        MedicalForm storage medicalForm = MedicalForms[_hospital][_patient][FormCount[_patient] - 1];
+        medicalForm.diagnosis = diagnosis;
+    }
+    
+    
+    //Create Prescription.
+    function createDrugPrescription(
+    string memory _drugName,
+    string memory _portions,
+    address _hospital,
+    address _patient
+    )
+    public payable isValidDoctor(_hospital) {
+        DrugPrescription memory prescription;
+        prescription.drugName = _drugName;
+        prescription.portions = _portions;
+        
+        MedicalForm storage medicalForm = MedicalForms[_hospital][_patient][FormCount[_patient] - 1];
+        medicalForm.prescriptions.push(prescription);
+    }
+    
+    //Create Medical Form
+    function createMedicalForm(
+    address _hospital,
+    address _doctor,
+    address _patient
+    )
+    public setFormCount(_patient) isValidDoctor(_hospital) {
+        MedicalForm storage medicalForm = MedicalForms[_hospital][_patient].push();
+        medicalForm.hospital = _hospital;
+        medicalForm.doctor = _doctor;
+    }
+    
+    //Get Patient medicalForms
+    function getMedicalForms(address _hospital, address _patient) public view returns(MedicalForm[] memory){
+        return MedicalForms[_hospital][_patient];
+    }
+}
