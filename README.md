@@ -1,13 +1,13 @@
 # MEDICAL-DASH
 **Register Users on to the block chain**
-    • Hospitals
-    • Doctors
-    • patients
+• Hospitals
+• Doctors
+• patients
 **Collect Patient Data and save them in a medical file**
-    • Triage
-    • Diagnosis
-    • Lab Tests
-    • Prescription /Treatments
+• Triage
+• Diagnosis
+• Lab Tests
+• Prescription /Treatments
 **Demonstrate the universal medical card (simulate using QR codes)**
 
 ## INSTALLATION
