@@ -6,7 +6,7 @@ const Web3 = require('web3');
 
 const web3 = new Web3('http://127.0.0.1:8545');
 
-const _address = '0x72D7a25e3cE52DBBCf8c9487D7fCBAfdbf346fc1';
+const _address = '0x7B03678A5657b4D0Dfea6E68BF512737c05CDC2A';
 
 const contract = new web3.eth.Contract(contractAbi(), _address);
 
@@ -22,6 +22,17 @@ export function createHospital(owner, address, name, regNo) {
 
 export function createDoctor(owner, address, name, licenceNumber){
   contract.methods.createDoctor(address, name, licenceNumber).send({ from: owner, gas: 200000 }, (err, txHash) => {
+    if(err){
+      console.log(err);
+    } else {
+      console.log(txHash);
+    }
+  });
+}
+
+export function appointDoctor(address){
+  let hospital = readHospitalCode();
+  contract.methods.appointDoctor(address).send({ from: hospital, gas: 200000 }, (err, txHash) => {
     if(err){
       console.log(err);
     } else {
@@ -109,4 +120,16 @@ export function readPatient(address) {
     }
     return data;
   })
+}
+
+export function readHospital(address) {
+  return new Promise((resolve, reject) => {
+    contract.methods.Hospitals(address).call({ from: address, gas: 200000 }, (err, result) => {
+      if(err) {
+        reject(err);
+      }else {
+        resolve(result);
+      }
+    });
+  });
 }

@@ -17,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Logo from 'src/components/Logo';
 import ScanQR from '../../components/ScanQR';
 import { setHospitalCode } from '../../components/ReadHospitalQR';
+import { readHospital } from '../../solFunctions/solFunctions';
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -36,11 +37,16 @@ const TopBar = ({
   ...rest
 }) => {
   const classes = useStyles();
-  // const [notifications] = useState([]);
+  const [title, setTitle] = React.useState('Not Logged In');
 
   const getHospitalCode = (data) => {
     // console.log(data);
     setHospitalCode(data);
+
+    readHospital(data).then((result) => {
+      console.log(result);
+      setTitle(result.name);
+    });
   };
 
   return (
@@ -53,7 +59,7 @@ const TopBar = ({
         <RouterLink to="/">
           <Logo />
         </RouterLink>
-        <Typography variant="h3" className={classes.title}>Hospital Name</Typography>
+        <Typography variant="h3" className={classes.title}>{title}</Typography>
         <Box flexGrow={1} />
         <ScanQR title="LogIn Hospital" readCode={getHospitalCode} />
         <Hidden lgUp>

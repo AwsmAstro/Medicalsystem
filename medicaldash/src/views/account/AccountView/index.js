@@ -5,6 +5,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
+import { appointDoctor } from 'src/solFunctions/solFunctions';
 import Toolbar from './Toolbar';
 import SimpleTabs from './form';
 
@@ -36,13 +37,18 @@ const ProductList = () => {
     setAccount(data);
   };
 
+  const appointDrQR = (data) => {
+    console.log(`Dr: ${data}`);
+    appointDoctor(data);
+  };
+
   return (
     <Page
       className={classes.root}
       title="Create Accounts"
     >
       <Container maxWidth={false}>
-        <Toolbar readSignQR={readSignQR} readAccountQR={readAccountQR} />
+        <Toolbar readSignQR={readSignQR} readAccountQR={readAccountQR} appointDrQR={appointDrQR} />
         <SimpleTabs sign={sign} account={account} />
       </Container>
     </Page>

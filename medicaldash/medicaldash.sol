@@ -75,6 +75,7 @@ contract HealthData {
     mapping(address => mapping(address => MedicalForm[])) public MedicalForms;
     mapping(address => uint) public FormCount;
     mapping(address => Doctor) public Doctors;
+    mapping(address => address[]) public PatientList;
     address public owner;
     
     constructor() {
@@ -307,6 +308,8 @@ contract HealthData {
         MedicalForm storage medicalForm = MedicalForms[_hospital][_patient].push();
         medicalForm.hospital = _hospital;
         medicalForm.doctor = _doctor;
+        
+        PatientList[_hospital].push(_patient);
     }
     
     //Get Patient medicalForms

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
   Box,
-  Button,
   makeStyles
 } from '@material-ui/core';
 import ScanQR from '../../../components/ScanQR';
@@ -22,6 +21,7 @@ const Toolbar = ({
   className,
   readSignQR,
   readAccountQR,
+  appointDrQR,
   ...rest
 }) => {
   const classes = useStyles();
@@ -40,6 +40,12 @@ const Toolbar = ({
     }
   };
 
+  const appointDr = (data) => {
+    if (appointDrQR) {
+      appointDrQR(data);
+    }
+  };
+
   return (
     <div
       className={clsx(classes.root, className)}
@@ -51,12 +57,7 @@ const Toolbar = ({
       >
         <ScanQR title="SCAN SIGNATURE" readCode={readSign} />
         <ScanQR title="SCAN ACCOUNT" readCode={readAccount} />
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Get Form
-        </Button>
+        <ScanQR title="APPOINT Dr" readCode={appointDr} />
       </Box>
     </div>
   );
@@ -65,7 +66,8 @@ const Toolbar = ({
 Toolbar.propTypes = {
   className: PropTypes.string,
   readSignQR: PropTypes.func,
-  readAccountQR: PropTypes.func
+  readAccountQR: PropTypes.func,
+  appointDrQR: PropTypes.func
 };
 
 export default Toolbar;
