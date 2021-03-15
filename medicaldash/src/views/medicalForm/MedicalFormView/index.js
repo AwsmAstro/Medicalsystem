@@ -5,6 +5,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
+import { createMedicalForm } from 'src/solFunctions/solFunctions';
 import Toolbar from './Toolbar';
 import SimpleTabs from './form';
 
@@ -34,6 +35,8 @@ const MedicalForm = () => {
   const readPatientQR = (data) => {
     console.log(`Patient: ${data}`);
     setPatient(data);
+
+    createMedicalForm(doctor, data);
   };
 
   return (

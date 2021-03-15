@@ -582,6 +582,25 @@ let ABI = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "_hospital",
+				"type": "address"
+			}
+		],
+		"name": "getPatientList",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}

@@ -1,32 +1,23 @@
-import { v4 as uuid } from 'uuid';
+import { getPatientList, readPatient } from 'src/solFunctions/solFunctions';
 
-export default [
-  {
-    id: uuid(),
-    address: {
-      country: 'USA',
-      state: 'West Virginia',
-      city: 'Parkersburg',
-      street: '2849 Fulton Street'
-    },
-    avatarUrl: '/static/images/avatars/avatar_3.png',
-    createdAt: 1555016400000,
-    email: 'ekaterina.tankova@devias.io',
-    name: 'Ekaterina Tankova',
-    phone: '304-428-3097'
-  },
-  {
-    id: uuid(),
-    address: {
-      country: 'USA',
-      state: 'Bristow',
-      city: 'Iowa',
-      street: '1865  Pleasant Hill Road'
-    },
-    avatarUrl: '/static/images/avatars/avatar_4.png',
-    createdAt: 1555016400000,
-    email: 'cao.yu@devias.io',
-    name: 'Cao Yu',
-    phone: '712-351-5711'
-  }
-];
+export default function getPatientData() {
+  const data = [];
+  getPatientList().then((result) => {
+    for (let i = 0; i < result.length; i++) {
+      readPatient(result[i]).then((result1) => {
+        console.log(result1);
+        data.push(
+          {
+            id: result[i],
+            name: result1.name,
+            gender: result1.gender,
+            location: result1.location,
+            dateOfBirth: result1.dateOfBirth
+          }
+        );
+        console.log(data);
+      }).catch((e) => console.log(e));
+    }
+  }).catch((e1) => console.log(e1));
+  return data;
+}

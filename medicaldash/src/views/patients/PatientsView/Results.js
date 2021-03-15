@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Results = ({ className, customers, ...rest }) => {
+const Results = ({ className, patients, ...rest }) => {
   const classes = useStyles();
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const [patientState, setPatientState] = useState(patients);
 
   const handleLimitChange = (event) => {
     setLimit(event.target.value);
@@ -35,8 +36,15 @@ const Results = ({ className, customers, ...rest }) => {
     setPage(newPage);
   };
 
+  const handlePatientChange = () => {
+    if (patients) {
+      setPatientState(patients);
+    }
+  };
+
   return (
     <Card
+      onLoad={handlePatientChange}
       className={clsx(classes.root, className)}
       {...rest}
     >
@@ -60,10 +68,10 @@ const Results = ({ className, customers, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {patientState.slice(0, limit).map((patient) => (
                 <TableRow
                   hover
-                  key={customer.id}
+                  key={patient.id}
                 >
                   <TableCell>
                     <Box
@@ -74,18 +82,18 @@ const Results = ({ className, customers, ...rest }) => {
                         color="textPrimary"
                         variant="body1"
                       >
-                        {customer.name}
+                        {patient.name}
                       </Typography>
                     </Box>
                   </TableCell>
                   <TableCell>
-                    {customer.gender}
+                    {patient.gender}
                   </TableCell>
                   <TableCell>
-                    {customer.location}
+                    {patient.location}
                   </TableCell>
                   <TableCell>
-                    {customer.dateofbirth}
+                    {patient.dateOfBirth}
                   </TableCell>
                 </TableRow>
               ))}
@@ -95,7 +103,7 @@ const Results = ({ className, customers, ...rest }) => {
       </PerfectScrollbar>
       <TablePagination
         component="div"
-        count={customers.length}
+        count={patientState.length}
         onChangePage={handlePageChange}
         onChangeRowsPerPage={handleLimitChange}
         page={page}
@@ -108,7 +116,7 @@ const Results = ({ className, customers, ...rest }) => {
 
 Results.propTypes = {
   className: PropTypes.string,
-  customers: PropTypes.array.isRequired
+  patients: PropTypes.array.isRequired
 };
 
 export default Results;

@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Results from './Results';
-import data from './data';
+import getPatientData from './data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PatientsView = () => {
   const classes = useStyles();
-  const [customers] = useState(data);
+  const [patients] = useState(getPatientData());
 
   return (
     <Page
@@ -28,7 +28,7 @@ const PatientsView = () => {
     >
       <Container maxWidth={false}>
         <Box mt={3}>
-          <Results customers={customers} />
+          <Results patients={patients} />
         </Box>
       </Container>
     </Page>
