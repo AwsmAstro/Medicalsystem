@@ -9,7 +9,8 @@ import LoginView from 'src/views/auth/LoginView';
 import NotFoundView from 'src/views/errors/NotFoundView';
 // import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
-import SettingsView from 'src/views/settings/SettingsView';
+// import SettingsView from 'src/views/settings/SettingsView';
+import FormView from 'src/views/loadForm/FormView';
 import PatientsView from 'src/views/patients/PatientsView';
 import MedicalForm from './views/medicalForm/MedicalFormView';
 
@@ -22,7 +23,7 @@ const routes = [
       { path: 'patients', element: <PatientsView /> },
       { path: 'dashboard', element: <DashboardView /> },
       { path: 'medicalform', element: <MedicalForm /> },
-      { path: 'settings', element: <SettingsView /> },
+      { path: 'loadForm', element: <FormView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

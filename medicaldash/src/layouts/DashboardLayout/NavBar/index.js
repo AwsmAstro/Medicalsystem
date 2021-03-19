@@ -10,8 +10,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import {
-  BarChart as BarChartIcon,
-  Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   Users as UsersIcon
@@ -19,11 +17,6 @@ import {
 import NavItem from './NavItem';
 
 const items = [
-  {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
-  },
   {
     href: '/app/patients',
     icon: UsersIcon,
@@ -38,11 +31,6 @@ const items = [
     href: '/app/accounts',
     icon: UserIcon,
     title: 'Create Accounts'
-  },
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
   }
 ];
 

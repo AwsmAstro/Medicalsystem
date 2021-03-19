@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -12,8 +13,10 @@ import {
   TablePagination,
   TableRow,
   Typography,
-  makeStyles
+  makeStyles,
+  Link
 } from '@material-ui/core';
+import { setForm, setName } from 'src/components/loadMedicalForms';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -40,6 +43,11 @@ const Results = ({ className, patients, ...rest }) => {
     if (patients) {
       setPatientState(patients);
     }
+  };
+
+  const handlePatientClick = (event) => {
+    setForm(event.target.parentNode.parentNode.parentNode.attributes.a.value);
+    setName(event.target.innerText);
   };
 
   return (
@@ -73,19 +81,21 @@ const Results = ({ className, patients, ...rest }) => {
                   hover
                   key={patient.id}
                 >
-                  <TableCell>
-                    <Box
-                      alignItems="center"
-                      display="flex"
-                    >
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
+                  <Link a={patient.id} component={RouterLink} to="/app/loadForm" onClick={handlePatientClick}>
+                    <TableCell>
+                      <Box
+                        alignItems="center"
+                        display="flex"
                       >
-                        {patient.name}
-                      </Typography>
-                    </Box>
-                  </TableCell>
+                        <Typography
+                          color="textPrimary"
+                          variant="body1"
+                        >
+                          {patient.name}
+                        </Typography>
+                      </Box>
+                    </TableCell>
+                  </Link>
                   <TableCell>
                     {patient.gender}
                   </TableCell>

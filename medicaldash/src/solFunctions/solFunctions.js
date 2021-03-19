@@ -159,6 +159,22 @@ export function readPatient(address) {
   });
 }
 
+export function readDoctor(address) {
+  let hospital = readHospitalCode(); 
+
+  return new Promise((resolve, reject) => {
+    contract.methods.Doctors(address).call({ from: hospital, gas: 200000 }, (err, result) => {
+      if(err){
+        console.log(err);
+        reject(err);
+      }else{
+        console.log(result);
+        resolve(result);
+      }
+    });
+  });
+}
+
 export function readHospital(address) {
   return new Promise((resolve, reject) => {
     contract.methods.Hospitals(address).call({ from: address, gas: 200000 }, (err, result) => {

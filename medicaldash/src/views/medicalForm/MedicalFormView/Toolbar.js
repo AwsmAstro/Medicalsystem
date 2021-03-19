@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
   Box,
-  Button,
-  // Card,
-  // CardContent,
-  // TextField,
-  // InputAdornment,
-  // SvgIcon,
+  Typography,
   makeStyles,
 } from '@material-ui/core';
 import ScanQR from '../../../components/ScanQR';
@@ -20,11 +15,14 @@ const useStyles = makeStyles((theme) => ({
   },
   exportButton: {
     marginRight: theme.spacing(1)
+  },
+  signInfo: {
+    width: '100%'
   }
 }));
 
 const Toolbar = ({
-  className, readDoctorQR, readPatientQR, ...rest
+  className, readDoctorQR, readPatientQR, doctor, patient, ...rest
 }) => {
   const classes = useStyles();
 
@@ -49,16 +47,14 @@ const Toolbar = ({
     >
       <Box
         display="flex"
-        justifyContent="flex-end"
+        alignContent="flex-end"
       >
+        <Box className={classes.signInfo}>
+          <Typography variant="h5" display="block">{doctor}</Typography>
+          <Typography variant="h5" display="block">{patient}</Typography>
+        </Box>
         <ScanQR title="SIGN DOCTOR" readCode={readDoctorCode} />
         <ScanQR title="SIGN PATIENT" readCode={readPatientCode} />
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Get Form
-        </Button>
       </Box>
     </div>
   );
@@ -67,7 +63,9 @@ const Toolbar = ({
 Toolbar.propTypes = {
   className: PropTypes.string,
   readDoctorQR: PropTypes.func,
-  readPatientQR: PropTypes.func
+  readPatientQR: PropTypes.func,
+  doctor: PropTypes.func,
+  patient: PropTypes.func
 };
 
 export default Toolbar;
